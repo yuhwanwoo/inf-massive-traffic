@@ -17,3 +17,19 @@ create table article (
     modified_at datetime not null
 )
 ```
+
+```sql
+select * from article where board_id order by created_at desc limit 30 offset 90;
+create index idx_board_article_id on article(board_id asc, article_id desc);
+select * from article where board_id = 1 order by article_id desc limit 30 offset 90;
+select * from article where board_id = 1 order by article_id desc limit 30 offset 1499970;
+/*
+ 인덱스를 알아야해
+ 
+ MySQL의 기본 스토리지 엔진 innoDB
+ 
+ */
+
+select board_id, article_id from article where board_id = 1 order by article_id desc limit 30 offset 1499970;
+select * from ( select article_id from article where board_id = 1 order by article_id desc limit 30 offset 1499970) t left join article on t.article_id = article.article_id; 
+```
