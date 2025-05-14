@@ -31,5 +31,12 @@ select * from article where board_id = 1 order by article_id desc limit 30 offse
  */
 
 select board_id, article_id from article where board_id = 1 order by article_id desc limit 30 offset 1499970;
-select * from ( select article_id from article where board_id = 1 order by article_id desc limit 30 offset 1499970) t left join article on t.article_id = article.article_id; 
+select * from ( select article_id from article where board_id = 1 order by article_id desc limit 30 offset 1499970) t left join article on t.article_id = article.article_id;
+
+/*
+ 페이지 공식
+ (((n-1) / k) + 1) * m * k + 1
+ */
+ 
+ select count(*) from (select article_id from article where board_id = 1 limit 300301) t;
 ```
