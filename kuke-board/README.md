@@ -40,3 +40,12 @@ select * from ( select article_id from article where board_id = 1 order by artic
  
  select count(*) from (select article_id from article where board_id = 1 limit 300301) t;
 ```
+
+```sql
+/*
+무한 스크롤 예시
+*/
+select * from article where board_id = 1 order by article_id desc limit 30;
+select * from article where  board_id = 1 and article_id < 12345678 order by article_id desc limit 30;
+
+```
