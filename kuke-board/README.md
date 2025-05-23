@@ -49,3 +49,19 @@ select * from article where board_id = 1 order by article_id desc limit 30;
 select * from article where  board_id = 1 and article_id < 12345678 order by article_id desc limit 30;
 
 ```
+
+```sql
+/*
+ 댓글 기능 개발
+ */
+ create table comment (
+     comment_id bigint not null primary key,
+     content varchar(3000) not null ,
+     article_id bigint not null ,
+     parent_commend_id bigint not null ,
+     writer_id bigint not null ,
+     deleted bool not null ,
+     created_at datetime not null 
+ );
+
+```
