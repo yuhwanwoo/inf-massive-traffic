@@ -58,7 +58,7 @@ select * from article where  board_id = 1 and article_id < 12345678 order by art
      comment_id bigint not null primary key,
      content varchar(3000) not null ,
      article_id bigint not null ,
-     parent_commend_id bigint not null ,
+     parent_comment_id bigint not null ,
      writer_id bigint not null ,
      deleted bool not null ,
      created_at datetime not null 

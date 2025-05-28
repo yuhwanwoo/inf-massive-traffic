@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     @Query(
             value = "select count(*) from (" +
-                    " select commend_id from comment " +
+                    " select comment_id from comment " +
                     " where article_id = :articleId and parent_comment_id = :parentCommentId " +
                     " limit :limit" +
                     ") t",
