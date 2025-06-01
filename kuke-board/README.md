@@ -86,4 +86,31 @@ create index idx_article_id_parent_comment_id_comment_id on comment(
 select count(*)
 from (select comment_id from comment where article_id = {article_id} limit {limit}) t;
 
+
+
+/*
+ 댓글 테이블 설계 - 무한 depth
+ */
+
+select table_name, table_collation from information_schema.Tables where table_schema = 'comment';
+
+create table comment_v2 (
+     comment_id bigint not null primary key,
+     content varchar(3000) not null ,
+     article_id bigint not null ,
+     writer_id bigint not null ,
+    path varchar(25) character set utf8mb4 collate utf8mb4_bin not null,
+     deleted bool not null ,
+     created_at datetime not null
+);
+
+create unique index idx_article_id_path on comment_v2(
+        article_id asc, path asc
+    );
+
+select table_name, column_name, collation_name from information_schema.COLUMNS where table_schema = 'comment' and table_name = 'comment_v2';;
+
+explain select path from comment_v2 where article_id = 1 and path > '00a0z' 
+ and path like '00a0z%'
+ order by path desc limit 1;
 ```
