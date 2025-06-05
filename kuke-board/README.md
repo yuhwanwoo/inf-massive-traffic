@@ -114,3 +114,21 @@ explain select path from comment_v2 where article_id = 1 and path > '00a0z'
  and path like '00a0z%'
  order by path desc limit 1;
 ```
+
+```sql
+/*
+ 좋아요 설계
+ - mysql을 사용하는데 유니크 인덱스를 사용하면 이를 손쉽게 구현 가능
+ - 게시글 id + 사용자 id로 유니크 인덱스를 만들면 된다.
+ */
+
+create table article_like (
+    article_like_id bigint not null primary key,
+    article_id bigint not null,
+    user_id bigint not null,
+    created_at datetime not null
+);
+
+create unique index idx_article_id_user_id on article_like(article_id asc, user_id asc);
+
+```
