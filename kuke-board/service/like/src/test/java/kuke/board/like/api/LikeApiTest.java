@@ -45,4 +45,9 @@ public class LikeApiTest {
                 .retrieve()
                 .body(ArticleLikeResponse.class);
     }
+
+    @Test
+    void likePerformanceTest() {
+
+    }
 }
