@@ -158,4 +158,18 @@ select * from performance_schema.data_locks;
      like_count bigint not null,
      version bigint not null
  );
+
+/*
+ 게시글 수, 댓글 수
+ */
+ create table board_article_count (
+     board_id bigint not null primary key,
+     article_count bigint not null
+ );
+
+create table article_comment_count (
+    article_id bigint not null primary key,
+    comment_count bigint not null
+);
+
 ```

@@ -19,14 +19,14 @@ public interface ArticleLikeCountRepository extends JpaRepository<ArticleLikeCou
     Optional<ArticleLikeCount> findLockedByArticleId(Long articleId);
 
     @Query(
-            value = "update article_like_count set like_count = like_count + 1 where article_id =  :article_id",
+            value = "update article_like_count set like_count = like_count + 1 where article_id =  :articleId",
             nativeQuery = true
     )
     @Modifying
     int increase(@Param("articleId") Long articleId);
 
     @Query(
-            value = "update article_like_count set like_count = like_count - 1 where article_id =  :article_id",
+            value = "update article_like_count set like_count = like_count - 1 where article_id =  :articleId",
             nativeQuery = true
     )
     @Modifying
