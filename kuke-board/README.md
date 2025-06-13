@@ -173,3 +173,7 @@ create table article_comment_count (
 );
 
 ```
+
+```markdown
+docker run --name kuke-board-redis -d -p 6379:6379 redis:7.4
+```
