@@ -177,3 +177,14 @@ create table article_comment_count (
 ```markdown
 docker run --name kuke-board-redis -d -p 6379:6379 redis:7.4
 ```
+
+```sql
+create database article_view;
+       
+use article_view;
+
+create table article_view_count (
+    article_id bigint not null primary key,
+    view_count bigint not null
+);
+```
