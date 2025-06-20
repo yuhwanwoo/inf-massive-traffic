@@ -188,3 +188,15 @@ create table article_view_count (
     view_count bigint not null
 );
 ```
+
+```markdown
+docker run -d --name kuke-board-kafka -p 9092:9092 apache/kafka:3.8.0
+
+토픽 생성
+docker exec --workdir /opt/kafka/bin -it kuke-board-kafka sh
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic kuke-board-article --replication-factor 1 --partitions 3
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic kuke-board-comment --replication-factor 1 --partitions 3
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic kuke-board-like --replication-factor 1 --partitions 3
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic kuke-board-view --replication-factor 1 --partitions 3
+```
