@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -44,6 +45,6 @@ public class HotArticleScoreUpdater {
     }
 
     private boolean isArticleCreatedToday(LocalDateTime createdTime) {
-        return createdTime != null && createdTime.toLocalDate().equals(LocalTime.now());
+        return createdTime != null && createdTime.toLocalDate().equals(LocalDate.now());
     }
 }
