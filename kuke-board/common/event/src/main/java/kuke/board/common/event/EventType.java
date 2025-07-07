@@ -38,9 +38,9 @@ public enum EventType {
     }
 
     public static class Topic {
-        private static final String KUKE_BOARD_ARTICLE = "kuke-board-article";
-        private static final String KUKE_BOARD_COMMENT = "kuke-board-comment";
-        private static final String KUKE_BOARD_LIKE = "kuke-board-like";
-        private static final String KUKE_BOARD_VIEW = "kuke-board-view";
+        public static final String KUKE_BOARD_ARTICLE = "kuke-board-article";
+        public static final String KUKE_BOARD_COMMENT = "kuke-board-comment";
+        public static final String KUKE_BOARD_LIKE = "kuke-board-like";
+        public static final String KUKE_BOARD_VIEW = "kuke-board-view";
     }
 }
