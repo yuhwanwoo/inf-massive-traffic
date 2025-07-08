@@ -293,3 +293,16 @@ Coordinator는 각 참여자에게 트랜잭션을 커밋할 준비가 되었는
 * 우리는 이미 익숙한 스프링부트를 활용하여 개발하고 있다.
 * 위 패턴을 활용하지 않더라도, 직접 개발함으로써 익숙한 환경에서 관리하고 적은 운영 비용을 가져갈 수 있다.
 * 따라서, Transaction Log Tailing은 활용하지 않는다.
+
+```sql
+create table outbox(
+    outbox_id bigint not null primary key,
+    shard_key bigint not null,
+    event_type varchar(100) not null,
+    payload varchar(5000) not null,
+    created_at datetime not null
+);
+
+create index idx_shard_key_created_at on outbox(shard_key asc, created_at asc);
+
+```
