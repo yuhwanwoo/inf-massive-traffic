@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.HashMap;
@@ -19,6 +20,7 @@ import java.util.concurrent.Executors;
 @EnableAsync // 트랜잭션 끝나면 카프카에 대한 이벤트 전송 비동기로 하기 위함
 @Configuration
 @ComponentScan("kuke.board.common.outboxmessagerelay")
+@EnableScheduling
 public class MessageRelayConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
