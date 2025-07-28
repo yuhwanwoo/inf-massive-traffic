@@ -1,6 +1,7 @@
 package kuke.board.articleread.client;
 
 import jakarta.annotation.PostConstruct;
+import kuke.board.articleread.cache.OptimizedCacheable;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +22,8 @@ public class ViewClient {
         restClient = RestClient.create(viewServiceUrl);
     }
 
-    @Cacheable(key = "#articleId", value = "articleViewCount")
+//    @Cacheable(key = "#articleId", value = "articleViewCount")
+    @OptimizedCacheable(type = "articleViewCount", ttlSeconds = 1)
     public Long count(Long articleId) {
         log.info("[ViewClient.count] articleId={}", articleId);
         try {
