@@ -40,7 +40,7 @@ public enum EventType {
     public static class Topic {
         public static final String KUKE_BOARD_ARTICLE = "kuke-board-article";
         public static final String KUKE_BOARD_COMMENT = "kuke-board-comment";
-        public static final String KUKE_BOARD_LIKE = "kuke-board-like";
+        public static final String KUKE_BOARD_LIKE = "order-created";
         public static final String KUKE_BOARD_VIEW = "kuke-board-view";
     }
 }

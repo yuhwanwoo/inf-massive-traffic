@@ -19,14 +19,14 @@ public class ArticleReadEventConsumer {
     @KafkaListener(topics = {
             EventType.Topic.KUKE_BOARD_ARTICLE,
             EventType.Topic.KUKE_BOARD_ARTICLE,
-            EventType.Topic.KUKE_BOARD_LIKE
+            EventType.Topic.KUKE_BOARD_LIKE,
     })
     public void listen(String message, Acknowledgment ack) {
         log.info("[ArticleReadEventConsumer.listen] message: {}", message);
-        Event<EventPayload> event = Event.fromJson(message);
-        if (event != null) {
-            articleReadService.handleEvent(event);
-        }
+//        Event<EventPayload> event = Event.fromJson(message);
+//        if (event != null) {
+//            articleReadService.handleEvent(event);
+//        }
         ack.acknowledge();
     }
 }

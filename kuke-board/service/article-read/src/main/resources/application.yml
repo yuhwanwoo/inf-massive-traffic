@@ -8,9 +8,9 @@ spring:
       host: 127.0.0.1
       port: 6379
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 192.168.100.144:9092
     consumer:
-      group-id: kuke-board-article-read-service
+      group-id: be-chapter
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       enable-auto-commit: false
