@@ -1,4 +1,4 @@
-package kuke.board.article.api.api;
+package kuke.board.article.api;
 
 import kuke.board.article.service.response.ArticlePageResponse;
 import kuke.board.article.service.response.ArticleResponse;
