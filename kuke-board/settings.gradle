@@ -15,6 +15,7 @@ include 'service:article-read'
 
 include 'common2'
 include 'common2:snowflake'
+include 'common2:data-serializer'
 include 'service2'
 include 'service2:article'
 include 'service2:article-read'
