@@ -5,4 +5,5 @@ dependencies {
     implementation project(':common2:snowflake')
     implementation project(':common:outbox-message-relay')
     implementation project(':common:event')
+    implementation project(':common2:data-serializer')
 }

@@ -3,4 +3,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation project(':common2:event')
+    implementation project(':common2:data-serializer')
 }
